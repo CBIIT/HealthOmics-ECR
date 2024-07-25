@@ -7,7 +7,7 @@ on:
         required: true
       role_name:
         description: 'Role name to assume'
-        default: cbiit-omx-helper-role
+        default: nigms-omx-helper-role
         required: true
       aws_region:
         description: 'AWS Region'
@@ -34,13 +34,13 @@ jobs:
           role-session-name: GitHubActions-HealthOmics-ECR
 
       - name: Install CDK
-        run: npm install -g aws-cdk
-
-      - name: Bootstrap CDK
-        run: cdk bootstrap -all
+        run: npm install -g aws-cdk aws-cdk-lib
 
       - name: Install dependencies
-        run: npm install
+        run: npm install && npm update
+
+      - name: Bootstrap CDK
+        run: cdk bootstrap aws://${{ github.event.inputs.aws_account_id }}/${{ github.event.inputs.aws_region }}
 
       - name: Deploy OMX ECR Helper
         run: cdk deploy --all --require-approval never
