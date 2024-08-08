@@ -12,6 +12,17 @@ To successfully run this github action, required the following items:
 [This action](https://github.com/CBIIT/CloudOne_IaC/actions/workflows/adhoc-create-healthomics.yaml) can be used to provision the target account.
 
 
+### Usage
+
+The github action requires the following inputs:
+
+| Inputs | Description |
+|:------:|:------------|
+| AWS Account ID | This is the unique AWS account ID |
+| Role name to assume | The IAM role name for the github action to assume via OIDC (default: `cbiit-omx-helper-role`) |
+| AWS Region | The AWS Region to bootstrap CDK (default: `us-east-1`) |
+
+
 ### Steps
 
 In this repository, go to Github Action tab. Enter the AWS account ID and run the workflow.
