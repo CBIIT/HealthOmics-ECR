@@ -1,4 +1,4 @@
-# Amazon ECR Helper for AWS HealthOmics
+# CBIIT Managed HealthOmics ECR Helper
 
 
 ### Pre-requisite
